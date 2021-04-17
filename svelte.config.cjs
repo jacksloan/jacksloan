@@ -9,10 +9,10 @@ module.exports = {
 	preprocess: [
 		sveltePreprocess({
 			defaults: {
-				style: "postcss",
+				style: 'postcss'
 			},
 			postcss: true
-		}),
+		})
 	],
 
 	kit: {

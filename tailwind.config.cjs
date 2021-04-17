@@ -1,10 +1,9 @@
 module.exports = {
-	mode: "jit",
-	purge: [
-		"./src/**/*.{html,js,svelte,ts}",
-	],
+	mode: 'jit',
+	darkMode: 'class',
+	purge: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {},
+		extend: {}
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')]
 };
