@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	export let current: string = '';
 	export let pages: [string, string][] = [
 		['/', 'About'],
@@ -6,13 +7,18 @@
 		['/project', 'Projects'],
 		['/contact', 'Contact']
 	];
+
+	const dispatch = createEventDispatcher();
+	function linkClicked(path, name) {
+		dispatch('linkClicked', { path, name });
+	}
 </script>
 
 <nav class="bg-gray-100 border border-gray-200 shadow-lg p-6 px-8 rounded-full">
 	<ul class="flex flex-row gap-8">
 		{#each pages as [path, name]}
 			<li class:active={current === path}>
-				<a href={path}>{name}</a>
+				<a on:click={() => linkClicked(path, name)} href={path}>{name}</a>
 			</li>
 		{/each}
 	</ul>

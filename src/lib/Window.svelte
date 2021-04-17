@@ -1,22 +1,65 @@
 <script lang="ts">
+	import XIcon from 'svelte-feather-icons/src/icons/XIcon.svelte';
+	import MinusIcon from 'svelte-feather-icons/src/icons/MinusIcon.svelte';
+	import MaximizeIcon from 'svelte-feather-icons/src/icons/Maximize2Icon.svelte';
+
+	import { fly, scale } from 'svelte/transition';
 	export let toolbarText = '';
 	export let containerClass = '';
+	export let visible = true;
+	export let minimized = false;
+
+	function close() {
+		visible = false;
+	}
+
+	function minimize() {
+		visible = false;
+		minimized = true;
+	}
 </script>
 
-<div class="relative w-full max-w-4xl bg-white shadow-xl rounded-lg {containerClass}">
-	<div class="relative px-2 t-0 l-0 w-full h-6 bg-gray-100 rounded-t-lg top-0 left-0 text-center">
-		<div class="absolute l-0 t-0 w-64 h-full flex flex-row gap-2 items-center">
-			<div class="dot bg-red-500" />
-			<div class="dot bg-yellow-500" />
-			<div class="dot bg-green-500" />
+{#if visible}
+	<div
+		class="relative w-full max-w-4xl rounded-lg "
+		out:fly={{ y: 1000, duration: 1000 }}
+		in:fly={{ y: 1000, duration: 500 }}
+	>
+		<div
+			class="relative w-full max-w-4xl bg-white shadow-xl rounded-lg {containerClass}"
+			out:scale={{ duration: 500 }}
+			in:scale={{ duration: 500 }}
+		>
+			<div
+				class="relative px-2 t-0 l-0 w-full h-6 bg-gray-100 rounded-t-lg top-0 left-0 text-center"
+			>
+				<div class="absolute l-0 t-0 w-64 h-full flex flex-row gap-2 items-center group">
+					<button aria-label="Close Window" on:click={close} class="dot bg-red-500 border-red-600">
+						<XIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
+					</button>
+					<button
+						aria-label="Minimize Window"
+						on:click={minimize}
+						class="dot bg-yellow-500 border-yellow-600"
+					>
+						<MinusIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
+					</button>
+					<button aria-label="Maximize Window" class="dot bg-green-500 border-green-600">
+						<MaximizeIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
+					</button>
+				</div>
+				<h1 class="text-md font-medium">{toolbarText}</h1>
+			</div>
+			<slot />
 		</div>
-		<h1 class="text-md font-medium">{toolbarText}</h1>
 	</div>
-	<slot />
-</div>
+{/if}
 
 <style lang="postcss">
+	.icon {
+		@apply text-gray-900 opacity-0 group-hover:opacity-100;
+	}
 	.dot {
-		@apply rounded-full w-3 h-3;
+		@apply rounded-full w-3 h-3 border flex items-center justify-center;
 	}
 </style>
