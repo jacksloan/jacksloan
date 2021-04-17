@@ -15,10 +15,10 @@
 	}
 </script>
 
-<div class="container mx-auto h-screen flex flex-col items-center p-8 relative">
+<div class="container mx-auto h-screen flex flex-col items-center p-4 md:p-8 relative">
 	<Nav on:linkClicked={showWindow} />
 	<Window bind:visible bind:minimized containerClass="mt-8" toolbarText="Jack Sloan">
-		<main class="p-6">
+		<main class="p-4 md:p-6">
 			<slot />
 		</main>
 	</Window>
