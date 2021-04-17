@@ -31,7 +31,7 @@
 			in:scale={{ duration: 500 }}
 		>
 			<div
-				class="relative px-2 t-0 l-0 w-full h-6 bg-gray-100 rounded-t-lg top-0 left-0 text-center"
+				class="relative px-2 t-0 l-0 w-full h-6 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 rounded-t-lg top-0 left-0 text-center"
 			>
 				<div class="absolute l-0 t-0 w-64 h-full flex flex-row gap-2 items-center group">
 					<button aria-label="Close Window" on:click={close} class="dot bg-red-500 border-red-600">
