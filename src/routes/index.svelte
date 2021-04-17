@@ -1,49 +1,23 @@
-<script lang="ts">
-	import Counter from '$lib/Counter.svelte';
-</script>
-
 <svelte:head>
-	<title>Hello world!</title>
+	<title>Jack Sloan | About</title>
 </svelte:head>
 
-<main>
-	<h1>Hello world!</h1>
-
-	<Counter />
-
-	<p>Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
-</main>
-
-<style style lang="postcss">
-	main {
-		@apply text-center;
-		@apply p-4;
-		@apply mx-auto;
-	}
-
-	h1 {
-		@apply text-red-600;
-		@apply uppercase;
-		@apply text-6xl;
-		@apply font-thin;
-		@apply leading-tight;
-		@apply my-16 mx-auto;
-		@apply max-w-xs;
-	}
-
-	p {
-		@apply max-w-xs;
-		@apply my-8 mx-auto;
-		@apply leading-snug;
-	}
-
-	@screen sm {
-		h1 {
-			@apply max-w-none;
-		}
-
-		p {
-			@apply max-w-none;
-		}
-	}
-</style>
+<section class="prose">
+	<h2 class="text-xl">About</h2>
+	<p>
+		Hi! <span class="ml-1 mr-3">&#128075;</span> I'm Jack, a software consultant based in Minnesota.
+		I love to write code and come up with simple, creative solutions to complex, real-world problems.
+	</p>
+	<p>
+		In my free time I like to Cross-Country Ski, play music, and work on passion projects to teach
+		myself new technologies and just have fun making things.
+	</p>
+	<figure>
+		<img
+			src="/onion-river-ski.png"
+			class="w-96 self-center h-auto"
+			alt="Skiing At Onion River Rd, Lusten MN"
+		/>
+		<figcaption>Lusten, MN - Moved here in January 2021 to chase more snow!</figcaption>
+	</figure>
+</section>
