@@ -18,7 +18,7 @@
 
 <div class="container mx-auto h-screen flex flex-col items-center p-4 md:p-8 relative">
 	<Nav current={$page.path} on:linkClicked={showWindow} />
-	<Window bind:visible bind:minimized containerClass="mt-8" toolbarText="Jack Sloan">
+	<Window bind:visible bind:minimized containerClass="mt-4 md:mt-8" toolbarText="Jack Sloan">
 		<main class="p-4 md:p-6">
 			<slot />
 		</main>
@@ -31,7 +31,7 @@
 	{#if !minimized && !visible}
 		<section
 			aria-label="Tayne Dancing"
-			class="px-4 pt-12 text-right absolute top-48 flex flex-col content-center items-center gap-4"
+			class="px-4 pt-12 text-right absolute top-48 flex flex-col content-center items-center gap-4 z-0"
 			in:fly={{ duration: 1000, y: 50, easing: elasticOut }}
 		>
 			<p>Not really sure what you were expecting...</p>

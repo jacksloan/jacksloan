@@ -17,5 +17,5 @@
 	>
 		<List class="text-white" size="48" />
 	</button>
-	<span class="rounded-full bg-white w-1 h-1 mt-2 shadow-xl" />
+	<span class="rounded-full bg-gray-600 w-1 h-1 mt-2 shadow-xl" />
 </div>

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import LinkIcon from 'svelte-feather-icons/src/icons/ExternalLinkIcon.svelte';
+	import MenuIcon from 'svelte-feather-icons/src/icons/MenuIcon.svelte';
 	export let current: string = '';
 	export let pages: [string, string, string?][] = [
 		['/', 'About'],
@@ -15,29 +18,82 @@
 	];
 
 	const dispatch = createEventDispatcher();
+
+	let mobileMenuExpanded = false;
+	let isWindowSmall = false;
+
+	function mobileLinkClicked(path, name) {
+		linkClicked(path, name);
+		toggleMobileMenu();
+	}
+
 	function linkClicked(path, name) {
 		dispatch('linkClicked', { path, name });
 	}
+
+	function toggleMobileMenu() {
+		mobileMenuExpanded = !mobileMenuExpanded;
+	}
+
+	onMount(() => {
+		const matchWindowSmall = window.matchMedia('(max-width: 540px)');
+		isWindowSmall = matchWindowSmall.matches;
+
+		matchWindowSmall.addEventListener('change', (e) => {
+			isWindowSmall = e.matches;
+		});
+	});
 </script>
 
-<nav
-	class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-200 shadow-lg p-6 px-8 rounded-full"
->
-	<ul class="flex flex-row gap-8">
-		{#each pages as [path, name, externalLink]}
-			<li class:linkActive={current === path}>
-				{#if externalLink}
-					<a href={externalLink} target="_blank" class="flex flex-row items-center">
-						{name}
-						<LinkIcon class="ml-2 text-gray-800" size="16" />
-					</a>
-				{:else}
-					<a on:click={() => linkClicked(path, name)} href={path}>{name}</a>
-				{/if}
-			</li>
-		{/each}
-	</ul>
-</nav>
+{#if isWindowSmall}
+	<nav
+		class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-300 shadow-lg p-4 w-full rounded-xl flex flex-col items-left z-50"
+	>
+		<button class="flex flex-row gap-4" aria-label="Toggle Mobile Menu" on:click={toggleMobileMenu}>
+			<MenuIcon size="24" />
+			Menu
+		</button>
+		{#if mobileMenuExpanded}
+			<ul transition:slide class="flex flex-col mt-4">
+				{#each pages as [path, name, externalLink]}
+					<li class:linkActive={path === current}>
+						{#if externalLink}
+							<a href={externalLink} target="_blank" class="flex flex-row items-center py-4 w-full">
+								{name}
+								<LinkIcon class="ml-2 text-gray-800" size="16" />
+							</a>
+						{:else}
+							<a
+								class="inline-block w-full py-4"
+								on:click={() => mobileLinkClicked(path, name)}
+								href={path}>{name}</a
+							>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+	</nav>
+{:else}
+	<nav
+		class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-300 shadow-lg p-6 px-8 rounded-full"
+	>
+		<ul class="flex flex-row gap-8">
+			{#each pages as [path, name, externalLink]}
+				<li class:linkActive={current === path}>
+					{#if externalLink}
+						<a href={externalLink} target="_blank" class="flex flex-row items-center">
+							{name}
+							<LinkIcon class="ml-2 text-gray-800" size="16" />
+						</a>
+					{:else}
+						<a on:click={() => linkClicked(path, name)} href={path}>{name}</a>
+					{/if}
+				</li>
+			{/each}
+		</ul>
+	</nav>
+{/if}
 
 <style lang="postcss">
 	.linkActive {
