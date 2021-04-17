@@ -5,6 +5,7 @@
 	import Dock from '$lib/Dock.svelte';
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
+	import { page } from '$app/stores';
 
 	let minimized: boolean;
 	let visible: boolean;
@@ -16,7 +17,7 @@
 </script>
 
 <div class="container mx-auto h-screen flex flex-col items-center p-4 md:p-8 relative">
-	<Nav on:linkClicked={showWindow} />
+	<Nav current={$page.path} on:linkClicked={showWindow} />
 	<Window bind:visible bind:minimized containerClass="mt-8" toolbarText="Jack Sloan">
 		<main class="p-4 md:p-6">
 			<slot />

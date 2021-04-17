@@ -25,7 +25,7 @@
 >
 	<ul class="flex flex-row gap-8">
 		{#each pages as [path, name, externalLink]}
-			<li class:active={current === path}>
+			<li class:linkActive={current === path}>
 				{#if externalLink}
 					<a href={externalLink} target="_blank" class="flex flex-row items-center">
 						{name}
@@ -40,7 +40,7 @@
 </nav>
 
 <style lang="postcss">
-	.active {
+	.linkActive {
 		@apply text-indigo-600 underline;
 	}
 
