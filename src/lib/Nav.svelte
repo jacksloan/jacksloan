@@ -14,7 +14,9 @@
 	}
 </script>
 
-<nav class="bg-gray-100 border border-gray-200 shadow-lg p-6 px-8 rounded-full">
+<nav
+	class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-200 shadow-lg p-6 px-8 rounded-full"
+>
 	<ul class="flex flex-row gap-8">
 		{#each pages as [path, name]}
 			<li class:active={current === path}>
