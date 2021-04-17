@@ -17,12 +17,25 @@
 		visible = false;
 		minimized = true;
 	}
+
+	import { spring } from 'svelte/motion';
+	import { draggable } from './draggable';
+
+	const coords = spring({ x: 0, y: 0 }, { stiffness: 0.1, damping: 0.4 });
+
+	function handleDrag(event) {
+		coords.update(($coords) => ({
+			x: $coords.x + event.detail.dx,
+			y: $coords.y + event.detail.dy
+		}));
+	}
 </script>
 
 {#if visible}
 	<div
+		style="transform:translate({$coords.x}px,{$coords.y}px)"
 		class="relative w-full max-w-4xl rounded-lg "
-		out:fly={{ y: 1000, duration: 1000 }}
+		out:fly={{ y: 1000, duration: 500 }}
 		in:fly={{ y: 1000, duration: 500 }}
 	>
 		<div
@@ -31,7 +44,9 @@
 			in:scale={{ duration: 500 }}
 		>
 			<div
-				class="relative px-2 t-0 l-0 w-full h-6 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 rounded-t-lg top-0 left-0 text-center"
+				use:draggable
+				on:dragmove={handleDrag}
+				class="relative px-2 t-0 l-0 w-full h-6 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 rounded-t-lg top-0 left-0 text-center cursor-move select-none"
 			>
 				<div class="absolute l-0 t-0 w-64 h-full flex flex-row gap-2 items-center group">
 					<button aria-label="Close Window" on:click={close} class="dot bg-red-500 border-red-600">
