@@ -1,0 +1,39 @@
+<script lang="ts">
+	let email = '';
+
+	function setMailToAddress() {
+		email = ['jbsloan10', '@', 'gmail.com'].join('');
+	}
+</script>
+
+<svelte:head>
+	<title>Jack Sloan | Contact</title>
+</svelte:head>
+
+<section class="prose">
+	<h2 class="text-xl">Contact</h2>
+	<p>Feel free to reach out!</p>
+	<dl>
+		<dt>Email</dt>
+		<dd><a on:mouseover={setMailToAddress} href="mailto:{email}">jbsloan10 at gmail dot com</a></dd>
+
+		<dt>Github</dt>
+		<dd>
+			<a href="https://github.com/jacksloan/">https://github.com/jacksloan/</a>
+		</dd>
+	</dl>
+</section>
+
+<style>
+	a {
+		@apply text-blue-500;
+	}
+
+	dd {
+		@apply ml-6;
+	}
+
+	dt {
+		@apply text-lg font-semibold;
+	}
+</style>
