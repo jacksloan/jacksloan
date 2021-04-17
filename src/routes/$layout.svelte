@@ -5,7 +5,6 @@
 	import Dock from '$lib/Dock.svelte';
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
-	import XIcon from 'svelte-feather-icons/src/icons/XIcon.svelte';
 
 	let minimized: boolean;
 	let visible: boolean;

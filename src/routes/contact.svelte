@@ -12,14 +12,14 @@
 
 <section class="prose">
 	<h2 class="text-xl">Contact</h2>
-	<p>Feel free to reach out!</p>
+	<p>Interested in working together? Feel free to reach out!</p>
 	<dl>
 		<dt>Email</dt>
 		<dd><a on:mouseover={setMailToAddress} href="mailto:{email}">jbsloan10 at gmail dot com</a></dd>
 
 		<dt>Github</dt>
 		<dd>
-			<a href="https://github.com/jacksloan/">https://github.com/jacksloan/</a>
+			<a href="https://github.com/jacksloan/" target="_blank">https://github.com/jacksloan/</a>
 		</dd>
 	</dl>
 </section>

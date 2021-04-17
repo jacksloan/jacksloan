@@ -18,6 +18,10 @@
 		minimized = true;
 	}
 
+	function maximize() {
+		alert('Thanks for checking if that does anything! :)');
+	}
+
 	import { spring } from 'svelte/motion';
 	import { draggable } from './draggable';
 
@@ -59,7 +63,11 @@
 					>
 						<MinusIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
 					</button>
-					<button aria-label="Maximize Window" class="dot bg-green-500 border-green-600">
+					<button
+						on:click={maximize}
+						aria-label="Maximize Window"
+						class="dot bg-green-500 border-green-600"
+					>
 						<MaximizeIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
 					</button>
 				</div>
