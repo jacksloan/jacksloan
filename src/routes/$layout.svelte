@@ -31,10 +31,10 @@
 	{#if !minimized && !visible}
 		<section
 			aria-label="Tayne Dancing"
-			class="px-4 pt-12 text-right absolute top-48 flex flex-col content-center items-center gap-4 z-0"
+			class="px-4 pt-12 text-right absolute top-48 flex flex-col content-center items-center z-0"
 			in:fly={{ duration: 1000, y: 50, easing: elasticOut }}
 		>
-			<p>Not really sure what you were expecting...</p>
+			<p class="mb-4">Not really sure what you were expecting...</p>
 			<iframe
 				src="https://giphy.com/embed/VeHN6Z1DD1E3TWAy8P"
 				title="flarhgunnstow"

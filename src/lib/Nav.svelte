@@ -49,9 +49,9 @@
 	<nav
 		class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-300 shadow-lg p-4 w-full rounded-xl flex flex-col items-left z-50"
 	>
-		<button class="flex flex-row gap-4" aria-label="Toggle Mobile Menu" on:click={toggleMobileMenu}>
+		<button class="flex flex-row" aria-label="Toggle Mobile Menu" on:click={toggleMobileMenu}>
 			<MenuIcon size="24" />
-			Menu
+			<span class="ml-4">Menu</span>
 		</button>
 		{#if mobileMenuExpanded}
 			<ul transition:slide class="flex flex-col mt-4">
@@ -78,9 +78,9 @@
 	<nav
 		class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-300 shadow-lg p-6 px-8 rounded-full"
 	>
-		<ul class="flex flex-row gap-8">
-			{#each pages as [path, name, externalLink]}
-				<li class:linkActive={current === path}>
+		<ul class="flex flex-row">
+			{#each pages as [path, name, externalLink], index}
+				<li class:linkActive={current === path} class:ml-8={index > 0}>
 					{#if externalLink}
 						<a href={externalLink} target="_blank" class="flex flex-row items-center">
 							{name}
