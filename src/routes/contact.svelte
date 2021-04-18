@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import PageTransition from '$lib/PageTransition.svelte';
 	let email = '';
 
 	function setMailToAddress() {
@@ -10,19 +12,23 @@
 	<title>Jack Sloan | Contact</title>
 </svelte:head>
 
-<section class="prose">
-	<h2 class="text-xl">Contact</h2>
-	<p>Interested in working together? Feel free to reach out!</p>
-	<dl>
-		<dt>Email</dt>
-		<dd><a on:mouseover={setMailToAddress} href="mailto:{email}">jbsloan10 at gmail dot com</a></dd>
+<PageTransition refresh={$page.path}>
+	<section class="prose">
+		<h2 class="text-xl">Contact</h2>
+		<p>Interested in working together? Feel free to reach out!</p>
+		<dl>
+			<dt>Email</dt>
+			<dd>
+				<a on:mouseover={setMailToAddress} href="mailto:{email}">jbsloan10 at gmail dot com</a>
+			</dd>
 
-		<dt>Github</dt>
-		<dd>
-			<a href="https://github.com/jacksloan/" target="_blank">https://github.com/jacksloan/</a>
-		</dd>
-	</dl>
-</section>
+			<dt>Github</dt>
+			<dd>
+				<a href="https://github.com/jacksloan/" target="_blank">https://github.com/jacksloan/</a>
+			</dd>
+		</dl>
+	</section>
+</PageTransition>
 
 <style>
 	a {

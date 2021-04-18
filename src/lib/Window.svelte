@@ -33,6 +33,13 @@
 			y: $coords.y + event.detail.dy
 		}));
 	}
+
+	function resetCoords() {
+		coords.update(() => ({
+			x: 0,
+			y: 0
+		}));
+	}
 </script>
 
 {#if visible}
@@ -50,6 +57,7 @@
 			<div
 				use:draggable
 				on:dragmove={handleDrag}
+				on:dblclick={resetCoords}
 				class="relative px-2 t-0 l-0 w-full h-6 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 rounded-t-lg top-0 left-0 text-center cursor-move select-none"
 			>
 				<div class="absolute l-0 t-0 w-64 h-full flex flex-row items-center group">
