@@ -8,18 +8,21 @@
 	export let containerClass = '';
 	export let visible = true;
 	export let minimized = false;
+	export let fullscreen = false;
 
 	function close() {
 		visible = false;
+		fullscreen = false;
 	}
 
 	function minimize() {
 		visible = false;
+		fullscreen = false;
 		minimized = true;
 	}
 
-	function maximize() {
-		alert('Thanks for checking if that does anything! :)');
+	function toggleFullscreen() {
+		fullscreen = !fullscreen;
 	}
 
 	import { spring } from 'svelte/motion';
@@ -45,12 +48,12 @@
 {#if visible}
 	<div
 		style="transform:translate({$coords.x}px,{$coords.y}px)"
-		class="relative w-full max-w-4xl rounded-lg "
+		class="relative w-full rounded-lg {containerClass}"
 		out:fly={{ y: 1000, duration: 500 }}
 		in:fly={{ y: 1000, duration: 500 }}
 	>
 		<div
-			class="relative w-full max-w-4xl bg-white shadow-xl rounded-lg {containerClass}"
+			class="relative w-full h-full bg-white shadow-xl rounded-lg"
 			out:scale={{ duration: 500 }}
 			in:scale={{ duration: 500 }}
 		>
@@ -72,7 +75,7 @@
 						<MinusIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
 					</button>
 					<button
-						on:click={maximize}
+						on:click={toggleFullscreen}
 						aria-label="Maximize Window"
 						class="dot bg-green-500 border-green-600 ml-2"
 					>

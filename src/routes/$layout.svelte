@@ -6,9 +6,11 @@
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
 	import { page } from '$app/stores';
+	import Modal from '$lib/Modal.svelte';
 
 	let minimized: boolean;
 	let visible: boolean;
+	let fullscreen: boolean;
 
 	function showWindow() {
 		minimized = false;
@@ -16,13 +18,36 @@
 	}
 </script>
 
+{#if fullscreen}
+	<Modal on:close={() => (fullscreen = false)}>
+		<div class="h-screen w-screen ">
+			<Window
+				bind:visible
+				bind:minimized
+				bind:fullscreen
+				containerClass="w-full h-full"
+				toolbarText="Jack Sloan"
+			>
+				<main class="p-4 md:p-6">
+					<slot />
+				</main>
+			</Window>
+		</div>
+	</Modal>
+{/if}
+
 <div class="container mx-auto h-screen flex flex-col items-center p-4 md:p-8 relative">
 	<Nav current={$page.path} on:linkClicked={showWindow} />
-	<Window bind:visible bind:minimized containerClass="mt-4 md:mt-8" toolbarText="Jack Sloan">
-		<main class="p-4 md:p-6">
-			<slot />
-		</main>
-	</Window>
+	{#if !fullscreen}
+		<div class="mt-4 md:mt-8 w-full max-w-3xl">
+			<Window bind:visible bind:minimized bind:fullscreen toolbarText="Jack Sloan">
+				<main class="p-4 md:p-6">
+					<slot />
+				</main>
+			</Window>
+		</div>
+	{/if}
+
 	{#if minimized}
 		<div transition:fly={{ duration: 750, y: 50, easing: elasticOut }} class="absolute bottom-3">
 			<Dock on:dockItemClick={showWindow} />

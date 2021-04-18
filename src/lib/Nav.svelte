@@ -47,7 +47,7 @@
 
 {#if isWindowSmall}
 	<nav
-		class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-300 shadow-lg p-4 w-full rounded-xl flex flex-col items-left z-50"
+		class="bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 border border-gray-300 shadow-lg p-4 w-full rounded-xl flex flex-col items-left z-40"
 	>
 		<button class="flex flex-row" aria-label="Toggle Mobile Menu" on:click={toggleMobileMenu}>
 			<MenuIcon size="24" />
