@@ -20,7 +20,7 @@
 		</p>
 		<figure class="h-80">
 			<img
-				src="/onion-river-ski.png"
+				src="/onion-river-ski.jpg"
 				style="width: 384px; height: 274"
 				alt="Skiing At Onion River Rd, Lusten MN"
 			/>
