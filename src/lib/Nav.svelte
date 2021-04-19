@@ -87,7 +87,12 @@
 			{#each pages as [path, name, externalLink], index}
 				<li class:linkActive={current === path} class:ml-8={index > 0}>
 					{#if externalLink}
-						<a href={externalLink} target="_blank" class="flex flex-row items-center">
+						<a
+							href={externalLink}
+							target="_blank"
+							class="flex flex-row items-center"
+							rel="noopener"
+						>
 							{name}
 							<LinkIcon class="ml-2 text-gray-800" size="16" />
 						</a>
