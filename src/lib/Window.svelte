@@ -63,7 +63,7 @@
 				on:dblclick={resetCoords}
 				class="relative px-2 t-0 l-0 w-full h-6 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 rounded-t-lg top-0 left-0 text-center cursor-move select-none"
 			>
-				<div class="absolute l-0 t-0 w-64 h-full flex flex-row items-center group">
+				<div class="hidden sm:flex absolute l-0 t-0 w-64 h-full flex-row items-center group">
 					<button aria-label="Close Window" on:click={close} class="dot bg-red-500 border-red-600">
 						<XIcon class="text-gray-900 opacity-0 group-hover:opacity-100" />
 					</button>
@@ -94,6 +94,6 @@
 		@apply text-gray-900 opacity-0 group-hover:opacity-100;
 	}
 	.dot {
-		@apply rounded-full w-3 h-3 border flex items-center justify-center;
+		@apply rounded-full border flex items-center justify-center;
 	}
 </style>
