@@ -31,7 +31,7 @@
 		<ul>
 			{#each activeRepos as r}
 				<li>
-					<a href={r.html_url} target="_blank">
+					<a rel="noopener" href={r.html_url} target="_blank">
 						{r.description || r.name}
 					</a>
 				</li>
