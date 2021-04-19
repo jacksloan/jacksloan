@@ -21,6 +21,7 @@
 
 <svelte:head>
 	<title>Jack Sloan | Projects</title>
+	<meta name="description" content="A list of Jack's open source projects" />
 </svelte:head>
 
 <PageTransition refresh={$page.path}>

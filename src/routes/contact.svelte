@@ -10,6 +10,10 @@
 
 <svelte:head>
 	<title>Jack Sloan | Contact</title>
+	<meta
+		name="description"
+		content="Contact Me. Interested in working together? Feel free to reach out!"
+	/>
 </svelte:head>
 
 <PageTransition refresh={$page.path}>
@@ -24,7 +28,9 @@
 
 			<dt>Github</dt>
 			<dd>
-				<a href="https://github.com/jacksloan/" target="_blank">https://github.com/jacksloan/</a>
+				<a rel="noopener" href="https://github.com/jacksloan/" target="_blank"
+					>https://github.com/jacksloan/</a
+				>
 			</dd>
 		</dl>
 	</section>

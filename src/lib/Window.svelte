@@ -94,6 +94,6 @@
 		@apply text-gray-900 opacity-0 group-hover:opacity-100;
 	}
 	.dot {
-		@apply rounded-full border flex items-center justify-center;
+		@apply rounded-full w-3 h-3 border flex items-center justify-center;
 	}
 </style>

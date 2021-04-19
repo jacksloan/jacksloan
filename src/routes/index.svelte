@@ -5,6 +5,10 @@
 
 <svelte:head>
 	<title>Jack Sloan | About</title>
+	<meta
+		name="description"
+		content="About Jack Sloan / J Sloan Consulting LLC, a software consultant based in Minnesota."
+	/>
 </svelte:head>
 
 <PageTransition refresh={$page.path}>
