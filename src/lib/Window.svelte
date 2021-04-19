@@ -28,7 +28,7 @@
 	import { spring } from 'svelte/motion';
 	import { draggable } from './draggable';
 
-	const coords = spring({ x: 0, y: 0 }, { stiffness: 0.1, damping: 0.4 });
+	const coords = spring({ x: 0, y: 0 }, { stiffness: 0.1, damping: 0.3 });
 
 	function handleDrag(event) {
 		coords.update(($coords) => ({
@@ -60,6 +60,7 @@
 			<div
 				use:draggable
 				on:dragmove={handleDrag}
+				on:dragend={resetCoords}
 				on:dblclick={resetCoords}
 				class="relative px-2 t-0 l-0 w-full h-6 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100 rounded-t-lg top-0 left-0 text-center cursor-move select-none"
 			>
