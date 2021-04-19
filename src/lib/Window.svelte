@@ -47,7 +47,7 @@
 
 {#if visible}
 	<div
-		style="transform:translate({$coords.x}px,{$coords.y}px)"
+		style="transform:translate({$coords.x}px,{$coords.y}px) rotate({$coords.x * 0.1}deg)"
 		class="relative w-full rounded-lg {containerClass}"
 		out:fly={{ y: 1000, duration: 500 }}
 		in:fly={{ y: 1000, duration: 500 }}
