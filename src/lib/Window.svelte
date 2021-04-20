@@ -2,13 +2,17 @@
 	import XIcon from 'svelte-feather-icons/src/icons/XIcon.svelte';
 	import MinusIcon from 'svelte-feather-icons/src/icons/MinusIcon.svelte';
 	import MaximizeIcon from 'svelte-feather-icons/src/icons/Maximize2Icon.svelte';
-
 	import { fly, scale } from 'svelte/transition';
+        import { spring } from 'svelte/motion';
+	import { draggable } from './draggable';
+
 	export let toolbarText = '';
 	export let containerClass = '';
 	export let visible = true;
 	export let minimized = false;
 	export let fullscreen = false;
+
+        const coords = spring({ x: 0, y: 0 }, { stiffness: 0.1, damping: 0.3 });
 
 	function close() {
 		visible = false;
@@ -24,11 +28,6 @@
 	function toggleFullscreen() {
 		fullscreen = !fullscreen;
 	}
-
-	import { spring } from 'svelte/motion';
-	import { draggable } from './draggable';
-
-	const coords = spring({ x: 0, y: 0 }, { stiffness: 0.1, damping: 0.3 });
 
 	function handleDrag(event) {
 		coords.update(($coords) => ({
