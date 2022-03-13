@@ -12,8 +12,7 @@
 			'/resume',
 			'Resume',
 			'https://docs.google.com/document/d/1ukmcXTZxT4qIZSJprqPtwnEbyp5a5XD146htVwJ9W6U/edit?usp=sharing'
-		],
-		['/contact', 'Contact']
+		]
 	];
 
 	const dispatch = createEventDispatcher();

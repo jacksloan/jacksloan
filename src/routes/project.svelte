@@ -28,12 +28,12 @@
 
 <PageTransition refresh={$page.url.pathname}>
 	<section>
-		<h2 class="text-xl font-bold">Projects</h2>
+		<div class="prose">
+			<h2>Projects</h2>
+		</div>
 		<ul>
 			{#each activeRepos as r}
-				<li
-					class="flex flex-col items-start rounded-md px-3 py-4 mt-1 border-b border-gray-200"
-				>
+				<li class="flex flex-col items-start rounded-md px-3 py-4 mt-1 border-b border-gray-200">
 					<h3 class="text-xl font-semibold flex flex-row justify-between items-center gap-2">
 						<a
 							rel="noopener"
@@ -53,7 +53,9 @@
 						</p>
 						<ul class="flex flex-row -ml-1 mt-1" aria-label="github project topics">
 							{#each r.topics as topic}
-								<li class="rounded-lg ml-1 bg-gray-100 border text-sm border-gray-200 px-1">{topic}</li>
+								<li class="rounded-lg ml-1 bg-gray-100 border text-sm border-gray-200 px-1">
+									{topic}
+								</li>
 							{/each}
 						</ul>
 					</span>
