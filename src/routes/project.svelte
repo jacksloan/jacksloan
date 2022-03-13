@@ -26,8 +26,6 @@
 	<meta name="description" content="A list of Jack's open source projects" />
 </svelte:head>
 
-<GithubStars link="google.com" projectName="google" stargazers={10} />
-
 <PageTransition refresh={$page.url.pathname}>
 	<section>
 		<h2 class="text-xl font-bold">Projects</h2>
@@ -36,7 +34,7 @@
 				<li
 					class="border border-blue-200 shadow-md flex flex-col items-start rounded-md px-3 pt-3 pb-2 mt-3"
 				>
-					<h3 class="text-lg font-semibold py-3">
+					<h3 class="text-xl font-semibold py-3 flex flex-row justify-between w-full">
 						<a
 							rel="noopener"
 							class="text-blue-400 underline flex flex-row items-center"
@@ -47,11 +45,7 @@
 								{r.name}
 							</span>
 						</a>
-						<GithubStars
-							link={r.stargazers_url}
-							projectName={r.name}
-							stargazers={r.stargazers_count}
-						/>
+						<GithubStars link={r.html_url} projectName={r.name} stargazers={r.stargazers_count} />
 					</h3>
 					<p class="py-1">
 						{r.description || r.name}
