@@ -13,8 +13,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import type { Repository } from '$lib/githubRepo';
+	import GithubStars from '$lib/GithubStars.svelte';
 	import PageTransition from '$lib/PageTransition.svelte';
-	import ExternalLinkIcon from 'svelte-feather-icons/src/icons/ExternalLinkIcon.svelte';
 	export let repos: Repository[];
 	$: activeRepos = repos.filter((r) => {
 		return r.archived === false && r.private === false && r.fork === false;
@@ -26,13 +26,17 @@
 	<meta name="description" content="A list of Jack's open source projects" />
 </svelte:head>
 
+<GithubStars link="google.com" projectName="google" stargazers={10} />
+
 <PageTransition refresh={$page.url.pathname}>
 	<section>
 		<h2 class="text-xl font-bold">Projects</h2>
 		<ul>
 			{#each activeRepos as r}
-				<li class="border border-blue-200 shadow-md flex flex-col items-start rounded-md px-3 pt-3 pb-2 mt-3">
-					<h3 class="text-lg font-semibold">
+				<li
+					class="border border-blue-200 shadow-md flex flex-col items-start rounded-md px-3 pt-3 pb-2 mt-3"
+				>
+					<h3 class="text-lg font-semibold py-3">
 						<a
 							rel="noopener"
 							class="text-blue-400 underline flex flex-row items-center"
@@ -42,9 +46,12 @@
 							<span class="mr-2">
 								{r.name}
 							</span>
-
-							<ExternalLinkIcon size={'16'} />
 						</a>
+						<GithubStars
+							link={r.stargazers_url}
+							projectName={r.name}
+							stargazers={r.stargazers_count}
+						/>
 					</h3>
 					<p class="py-1">
 						{r.description || r.name}
