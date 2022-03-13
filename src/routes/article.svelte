@@ -7,7 +7,7 @@
 	<title>Jack Sloan | Articles</title>
 	<meta name="description" content="Software articles/tutorials by Jack" />
 </svelte:head>
-<PageTransition refresh={$page.path}>
+<PageTransition refresh={$page.url.pathname}>
 	<section class="prose">
 		<h2 class="text-xl">Articles</h2>
 		<p>

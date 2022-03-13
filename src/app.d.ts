@@ -8,3 +8,10 @@ declare namespace App {
 	// interface Session {}
 	// interface Stuff {}
 }
+
+declare namespace svelte.JSX {
+	interface HTMLAttributes<T> {
+		ondragmove?: (event: CustomEvent<{ x: number; y: number; dx: number; dy: number }>) => void;
+		ondragend?: (event: CustomEvent<{ x: number; y: number; dx: number; dy: number }>) => void;
+	}
+}

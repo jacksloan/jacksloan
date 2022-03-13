@@ -29,7 +29,7 @@
 		fullscreen = !fullscreen;
 	}
 
-	function handleDrag(event) {
+	function handleDrag(event: CustomEvent<{x: number, y: number, dx: number, dy: number}>) {
 		coords.update(($coords) => ({
 			x: $coords.x + event.detail.dx,
 			y: $coords.y + event.detail.dy
