@@ -23,7 +23,9 @@
 		<dl>
 			<dt>Email</dt>
 			<dd>
-				<a on:mouseover={setMailToAddress} href="mailto:{email}">jbsloan10 at gmail dot com</a>
+				<a on:mouseover={setMailToAddress} on:focus={setMailToAddress} href="mailto:{email}"
+					>jbsloan10 at gmail dot com</a
+				>
 			</dd>
 
 			<dt>Github</dt>
