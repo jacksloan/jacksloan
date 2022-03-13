@@ -58,15 +58,6 @@
 			/>
 			<figcaption class="-mt-4">Onion River Road - 2021</figcaption>
 		</figure>
-
-		<figure class="h-100 block">
-			<img
-				src="/st-croix-canoe-trip.jpg"
-				style="width: 384px; height: 274"
-				alt="Canoe trip on the St. Croix River"
-			/>
-			<figcaption class="-mt-4">St. Croix River Canoe Trip - 2021</figcaption>
-		</figure>
 	</section>
 </PageTransition>
 
