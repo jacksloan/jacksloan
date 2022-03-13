@@ -27,8 +27,6 @@
 <PageTransition refresh={$page.url.pathname}>
 	<section class="prose">
 		<h2 class="text-xl">Projects</h2>
-		<span class="mr-2">&#128679;</span>Under construction... &#128679;
-
 		<ul>
 			{#each activeRepos as r}
 				<li>
