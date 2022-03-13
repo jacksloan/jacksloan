@@ -32,12 +32,12 @@
 		<ul>
 			{#each activeRepos as r}
 				<li
-					class="border border-blue-200 shadow-md flex flex-col items-start rounded-md px-3 pt-3 pb-2 mt-3"
+					class="flex flex-col items-start rounded-md px-3 py-4 mt-1 border-b border-gray-200"
 				>
-					<h3 class="text-xl font-semibold py-3 flex flex-row justify-between w-full">
+					<h3 class="text-xl font-semibold flex flex-row justify-between items-center gap-2">
 						<a
 							rel="noopener"
-							class="text-blue-400 underline flex flex-row items-center"
+							class="text-blue-400 underline flex flex-row h-8"
 							href={r.html_url}
 							target="_blank"
 						>
@@ -47,14 +47,16 @@
 						</a>
 						<GithubStars link={r.html_url} projectName={r.name} stargazers={r.stargazers_count} />
 					</h3>
-					<p class="py-1">
-						{r.description || r.name}
-					</p>
-					<ul class="py-3 flex flex-row" aria-label="github project topics">
-						{#each r.topics as topic}
-							<li class="rounded-lg ml-1 bg-gray-100 border border-gray-200 px-1">{topic}</li>
-						{/each}
-					</ul>
+					<span class="py-1">
+						<p class="pt-1 pb-2">
+							{r.description || r.name}
+						</p>
+						<ul class="flex flex-row -ml-1 mt-1" aria-label="github project topics">
+							{#each r.topics as topic}
+								<li class="rounded-lg ml-1 bg-gray-100 border text-sm border-gray-200 px-1">{topic}</li>
+							{/each}
+						</ul>
+					</span>
 				</li>
 			{/each}
 		</ul>

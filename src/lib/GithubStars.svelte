@@ -18,10 +18,10 @@
 			/></svg
 		>&nbsp;<span class="text-sm font-medium">Star</span></a
 	><a
-		class="font-normal bg-white inline-flex items-center text-sm px-2 border-r border-gray-300 rounded-r border-t border-b"
+		class="font-medium bg-white inline-flex items-center text-sm px-2 border-r border-gray-300 rounded-r border-t border-b"
 		href={link}
 		rel="noopener"
 		target="_blank"
-		aria-label="{stargazers} stargazers on {projectName}">{stargazers}</a
+		aria-label="{stargazers} stargazers of {projectName}">{stargazers}</a
 	>
 </div>
