@@ -7,7 +7,6 @@
 	export let current: string = '';
 	export let pages: [string, string, string?][] = [
 		['/', 'About'],
-		['/article', 'Articles'],
 		['/project', 'Projects'],
 		[
 			'/resume',
