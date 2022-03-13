@@ -37,7 +37,7 @@
 {/if}
 
 <div class="container mx-auto h-screen flex flex-col items-center p-4 md:p-8 relative">
-	<Nav current={$page.path} on:linkClicked={showWindow} />
+	<Nav current={$page.url.pathname} on:linkClicked={showWindow} />
 	{#if !fullscreen}
 		<div class="mt-4 md:mt-8 w-full max-w-3xl">
 			<Window bind:visible bind:minimized bind:fullscreen toolbarText="Jack Sloan">

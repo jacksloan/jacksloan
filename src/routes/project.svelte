@@ -24,7 +24,7 @@
 	<meta name="description" content="A list of Jack's open source projects" />
 </svelte:head>
 
-<PageTransition refresh={$page.path}>
+<PageTransition refresh={$page.url.pathname}>
 	<section class="prose">
 		<h2 class="text-xl">Projects</h2>
 		<span class="mr-2">&#128679;</span>Under construction... &#128679;

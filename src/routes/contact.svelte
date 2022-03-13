@@ -16,7 +16,7 @@
 	/>
 </svelte:head>
 
-<PageTransition refresh={$page.path}>
+<PageTransition refresh={$page.url.pathname}>
 	<section class="prose">
 		<h2 class="text-xl">Contact</h2>
 		<p>Interested in working together? Feel free to reach out!</p>

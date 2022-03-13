@@ -2,3 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html {
+	@apply bg-gradient-to-bl from-green-200 via-blue-300 to-purple-200 w-full h-full overflow-y-scroll;
+}
