@@ -3,7 +3,7 @@ I'm Jack, a cloud software consultant living on Minnesota's north shore.
 
 The best way to reach me is directly via email at <hi@jacksloan.dev>.
 
-You can find me online on these other platforms:
+I'm also online on these other platforms:
 
 [LinkedIn](https://www.linkedin.com/in/jack-sloan/)
 
