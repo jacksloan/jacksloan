@@ -16,7 +16,7 @@
 		%svelte.head%
 	</head>
 	<body>
-		<p id="load">Firebase loading</p>
+		<p id="load">Firebase loading...</p>
 		<div>%svelte.body%</div>
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
@@ -31,6 +31,7 @@
 					} catch (e) {
 						console.log('analytics error', e);
 					}
+					loadEl.textContent = 'Firebase Loaded';
 				} catch (e) {
 					console.error(e);
 					loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
