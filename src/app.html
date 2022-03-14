@@ -8,14 +8,28 @@
 			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%221em%22 font-size=%2280%22>☃️</text></svg>"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- update the version number as needed -->
 		<script defer src="/__/firebase/9.6.8/firebase-app-compat.js"></script>
+		<!-- include only the Firebase features as you need -->
+		<script defer src="/__/firebase/9.6.8/firebase-auth-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-database-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-firestore-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-functions-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-messaging-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-storage-compat.js"></script>
 		<script defer src="/__/firebase/9.6.8/firebase-analytics-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-remote-config-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-performance-compat.js"></script>
+		<!-- 
+		  initialize the SDK after all desired features are loaded, set useEmulator to false
+		  to avoid connecting the SDK to running emulators.
+		-->
 		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
 		%svelte.head%
 	</head>
 	<body>
+		<p id="load">Firebase SDK Loading...</p>
 		<div>%svelte.body%</div>
-
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
 				const loadEl = document.querySelector('#load');
@@ -28,14 +42,26 @@
 				// firebase.functions().httpsCallable('yourFunction')().then(() => { });
 				// firebase.messaging().requestPermission().then(() => { });
 				// firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-				firebase.analytics(); // call to activate
-				firebase.analytics().logEvent('app_loaded');
+				// firebase.analytics(); // call to activate
+				// firebase.analytics().logEvent('tutorial_completed');
 				// firebase.performance(); // call to activate
 				//
 				// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
 				try {
 					let app = firebase.app();
+					let features = [
+						'auth',
+						'database',
+						'firestore',
+						'functions',
+						'messaging',
+						'storage',
+						'analytics',
+						'remoteConfig',
+						'performance'
+					].filter((feature) => typeof app[feature] === 'function');
+					loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
 				} catch (e) {
 					console.error(e);
 					loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
