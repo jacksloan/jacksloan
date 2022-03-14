@@ -3,11 +3,31 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%221em%22 font-size=%2280%22>☃️</text></svg>">
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%221em%22 font-size=%2280%22>☃️</text></svg>"
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<script defer src="/__/firebase/8.10.1/firebase-app.js"></script>
+		<script defer src="/__/firebase/8.10.1/firebase-analytics.js"></script>
+		<script defer src="/__/firebase/init.js"></script>
+
 		%svelte.head%
 	</head>
 	<body>
 		<div>%svelte.body%</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				try {
+					let app = firebase.app();
+					firebase.analytics(); // call to activate
+					firebase.analytics().logEvent('tutorial_completed');
+					console.debug('Firebase Loaded');
+				} catch (e) {
+					console.error('Error loading the Firebase SDK', e);
+				}
+			});
+		</script>
 	</body>
 </html>

@@ -27,10 +27,7 @@
 <PageTransition refresh={$page.url.pathname}>
 	<section class="prose">
 		<h2>About</h2>
-		<p>
-			Hi! <span class="ml-1 mr-3">&#128075;</span> I'm Jack, a Minnesota based software consultant living
-			on the north shore of Lake Superior.
-		</p>
+		<p>This is a test preview</p>
 
 		<h3>Find me online</h3>
 		<ul class="list-none">
