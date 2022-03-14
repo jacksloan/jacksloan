@@ -3,11 +3,44 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%221em%22 font-size=%2280%22>☃️</text></svg>">
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%221em%22 font-size=%2280%22>☃️</text></svg>"
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script defer src="/__/firebase/9.6.8/firebase-app-compat.js"></script>
+		<script defer src="/__/firebase/9.6.8/firebase-analytics-compat.js"></script>
+		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
 		%svelte.head%
 	</head>
 	<body>
 		<div>%svelte.body%</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const loadEl = document.querySelector('#load');
+				// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+				// // The Firebase SDK is initialized and available here!
+				//
+				// firebase.auth().onAuthStateChanged(user => { });
+				// firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+				// firebase.firestore().doc('/foo/bar').get().then(() => { });
+				// firebase.functions().httpsCallable('yourFunction')().then(() => { });
+				// firebase.messaging().requestPermission().then(() => { });
+				// firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+				firebase.analytics(); // call to activate
+				firebase.analytics().logEvent('app_loaded');
+				// firebase.performance(); // call to activate
+				//
+				// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+				try {
+					let app = firebase.app();
+				} catch (e) {
+					console.error(e);
+					loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+				}
+			});
+		</script>
 	</body>
 </html>
