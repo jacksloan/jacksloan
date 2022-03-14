@@ -24,13 +24,8 @@
 
 				try {
 					let app = firebase.app();
-					console.log({ app });
-					try {
-						firebase.analytics(); // call to activate
-						firebase.analytics().logEvent('tutorial_completed');
-					} catch (e) {
-						console.log('analytics error', e);
-					}
+					firebase.analytics(); // call to activate
+					firebase.analytics().logEvent('tutorial_completed');
 					loadEl.textContent = 'Firebase Loaded';
 				} catch (e) {
 					console.error(e);
