@@ -16,9 +16,11 @@
 	import GithubStars from '$lib/GithubStars.svelte';
 	import PageTransition from '$lib/PageTransition.svelte';
 	export let repos: Repository[];
-	$: activeRepos = repos.filter((r) => {
-		return r.archived === false && r.private === false && r.fork === false;
-	});
+	$: activeRepos = repos
+		.filter((r) => {
+			return r.archived === false && r.private === false && r.fork === false;
+		})
+		.sort((a, b) => b.stargazers_count - a.stargazers_count);
 </script>
 
 <svelte:head>
