@@ -41,8 +41,7 @@
 				// firebase.functions().httpsCallable('yourFunction')().then(() => { });
 				// firebase.messaging().requestPermission().then(() => { });
 				// firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-				firebase.analytics(); // call to activate
-				firebase.analytics().logEvent('tutorial_completed');
+
 				// firebase.performance(); // call to activate
 				//
 				// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -61,6 +60,8 @@
 						'performance'
 					].filter((feature) => typeof app[feature] === 'function');
 					loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+					firebase.analytics(); // call to activate
+					firebase.analytics().logEvent('tutorial_completed');
 				} catch (e) {
 					console.error(e);
 					loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
