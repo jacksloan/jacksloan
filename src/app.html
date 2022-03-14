@@ -28,7 +28,7 @@
 		%svelte.head%
 	</head>
 	<body>
-		<p id="load"></p>
+		<p id="load">Firebase loading</p>
 		<div>%svelte.body%</div>
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
@@ -61,8 +61,8 @@
 						'performance'
 					].filter((feature) => typeof app[feature] === 'function');
 					loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-					firebase.analytics(); // call to activate
-					firebase.analytics().logEvent('tutorial_completed');
+					// firebase.analytics(); // call to activate
+					// firebase.analytics().logEvent('tutorial_completed');
 				} catch (e) {
 					console.error(e);
 					loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
