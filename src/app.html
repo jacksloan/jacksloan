@@ -16,20 +16,16 @@
 		%svelte.head%
 	</head>
 	<body>
-		<p id="load">Firebase loading...</p>
 		<div>%svelte.body%</div>
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
-				const loadEl = document.querySelector('#load');
-
 				try {
 					let app = firebase.app();
 					firebase.analytics(); // call to activate
 					firebase.analytics().logEvent('tutorial_completed');
-					loadEl.textContent = 'Firebase Loaded';
+					console.debug('Firebase Loaded');
 				} catch (e) {
-					console.error(e);
-					loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+					console.error('Error loading the Firebase SDK', e);
 				}
 			});
 		</script>
