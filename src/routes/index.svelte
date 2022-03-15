@@ -63,6 +63,6 @@
 
 <style lang="postcss">
 	.social-link {
-		@apply inline-flex flex-row gap-2 items-center text-blue-400 px-2 py-1;
+		@apply inline-flex flex-row gap-2 items-center text-blue-600 px-2 py-1;
 	}
 </style>
