@@ -39,7 +39,7 @@
 					<h3 class="text-xl font-semibold flex flex-row justify-between items-center gap-2">
 						<a
 							rel="noopener"
-							class="text-blue-400 underline flex flex-row h-8"
+							class="text-blue-600 underline flex flex-row h-8"
 							href={r.html_url}
 							target="_blank"
 						>
