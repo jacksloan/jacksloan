@@ -5,6 +5,8 @@ The best way to reach me is directly via email at <hi@jacksloan.dev>.
 
 I'm also online on these other platforms:
 
+[My Portolio](https://jacksloan.dev)
+
 [LinkedIn](https://www.linkedin.com/in/jack-sloan/)
 
 [Youtube](https://www.youtube.com/user/jbsloan1/featured)
