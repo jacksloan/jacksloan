@@ -1,5 +1,5 @@
 ### Hi! 👋 
-I'm Jack, a cloud software consultant living on Minnesota's north shore.
+I'm Jack, a Minnesota based software consultant living on the north shore of Lake Superior.
 
 The best way to reach me is directly via email at <hi@jacksloan.dev>.
 
