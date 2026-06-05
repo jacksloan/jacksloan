@@ -13,4 +13,4 @@ I'm also online on these other platforms:
 
 [Github](https://github.com/jacksloan)
 
-[Instagram](https://www.instagram.com/jaack.sloan/)
+[Instagram](https://www.instagram.com/lutsenjack/)

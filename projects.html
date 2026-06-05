@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Jack Sloan | Projects</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="A list of Jack's open source projects" />
+	<link rel="canonical" href="https://jacksloan.dev/projects.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://jacksloan.dev/projects.html" />
+	<meta property="og:title" content="Jack Sloan | Projects" />
+	<meta property="og:description" content="A list of Jack's open source projects" />
+	<meta name="view-transition" content="same-origin" />
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/projects.html" aria-current="page">Projects</a></li>
+		</ul>
+		<div class="social">
+			<a href="https://github.com/jacksloan" target="_blank" rel="noopener" aria-label="Jack's Github">
+				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#github"></use></svg>
+			</a>
+			<a href="https://www.linkedin.com/in/jack-sloan/" target="_blank" rel="noopener" aria-label="Jack's LinkedIn">
+				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#linkedin"></use></svg>
+			</a>
+			<a href="https://www.youtube.com/user/jbsloan1/featured" target="_blank" rel="noopener" aria-label="Jack's Youtube">
+				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#youtube"></use></svg>
+			</a>
+			<a href="https://www.instagram.com/lutsenjack/" target="_blank" rel="noopener" aria-label="Jack's Instagram">
+				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#instagram"></use></svg>
+			</a>
+		</div>
+	</nav>
+
+	<main>
+		<h2>Projects</h2>
+		<div id="loading" aria-label="Loading projects"></div>
+		<ul id="repos" hidden></ul>
+	</main>
+
+	<script>
+		document.getElementById('loading').style.display = 'flex';
+		fetch('https://api.github.com/users/jacksloan/repos')
+			.then(r => r.json())
+			.then(repos => {
+				const active = repos
+					.filter(r => !r.archived && !r.private && !r.fork)
+					.sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+				document.getElementById('repos').innerHTML = active.map(r => `
+					<li>
+						<div class="repo-header">
+							<h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
+							${r.stargazers_count > 0 ? `<span class="stars">&#9733; ${r.stargazers_count}</span>` : ''}
+						</div>
+						<p>${r.description || ''}</p>
+						${r.topics.length ? `<ul class="topics" aria-label="github project topics">${r.topics.map(t => `<li>${t}</li>`).join('')}</ul>` : ''}
+					</li>
+				`).join('');
+
+				document.getElementById('loading').style.display = 'none';
+				document.getElementById('repos').removeAttribute('hidden');
+			});
+	</script>
+</body>
+</html>
