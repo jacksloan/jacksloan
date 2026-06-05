@@ -7,10 +7,34 @@
 	<body>
 		<nav>
 			<a href="/">Home</a>
-			<a href="/projects">Projects</a>
+			<a href="/projects.html">Projects</a>
 		</nav>
 		<main>
-			<h1>Projects</h1>
+			<section>
+				<h2>Projects</h2>
+				<ul id="repos"></ul>
+			</section>
 		</main>
+		<script>
+			fetch('https://api.github.com/users/jacksloan/repos')
+				.then(r => r.json())
+				.then(repos => {
+					const active = repos
+						.filter(r => !r.archived && !r.private && !r.fork)
+						.sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+					const list = document.getElementById('repos');
+					list.innerHTML = active.map(r => `
+						<li>
+							<h3>
+								<a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a>
+								${r.stargazers_count > 0 ? `<span aria-label="${r.stargazers_count} stars">&#9733; ${r.stargazers_count}</span>` : ''}
+							</h3>
+							<p>${r.description || r.name}</p>
+							${r.topics.length ? `<ul aria-label="github project topics">${r.topics.map(t => `<li>${t}</li>`).join('')}</ul>` : ''}
+						</li>
+					`).join('');
+				});
+		</script>
 	</body>
 </html>
