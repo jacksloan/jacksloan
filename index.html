@@ -11,7 +11,7 @@
 	<meta property="og:title" content="Jack Sloan | About" />
 	<meta property="og:description" content="About Jack Sloan / J Sloan Consulting LLC, a software consultant based in Minnesota." />
 	<meta name="view-transition" content="same-origin" />
-	<script>(function(){var s=localStorage.getItem('theme');document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');})()</script>
+	<script src="scripts/theme-init.js"></script>
 	<link rel="stylesheet" href="styles.css" />
 	<script type="application/ld+json">
 	{
@@ -91,12 +91,6 @@
 			</figure>
 		</article>
 	</main>
-	<script>
-		document.querySelector('.theme-toggle').addEventListener('click', function() {
-			const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-			document.documentElement.dataset.theme = next;
-			localStorage.setItem('theme', next);
-		});
-	</script>
+	<script src="scripts/theme.js"></script>
 </body>
 </html>
