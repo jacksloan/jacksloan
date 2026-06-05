@@ -12,7 +12,7 @@
 		[`Jack's LinkedIn`, 'https://www.linkedin.com/in/jack-sloan/', LinkedInIcon, 'LinkedIn'],
 		[`Jack's Github`, 'https://www.github.com/jacksloan', GithubIcon, 'Github'],
 		[`Jack's Youtube`, 'https://www.youtube.com/user/jbsloan1/featured', YoutubeIcon, 'Youtube'],
-		[`Jack's Instagram`, 'https://www.instagram.com/jaack.sloan/', InstagramIcon, 'Instagram']
+		[`Jack's Instagram`, 'https://www.instagram.com/lutsenjack/', InstagramIcon, 'Instagram']
 	];
 </script>
 
