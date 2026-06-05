@@ -11,29 +11,12 @@
 	<meta property="og:title" content="Jack Sloan | Projects" />
 	<meta property="og:description" content="A list of Jack's open source projects" />
 	<meta name="view-transition" content="same-origin" />
+	<script src="scripts/theme-init.js"></script>
+	<script src="scripts/nav.js"></script>
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/projects.html" aria-current="page">Projects</a></li>
-		</ul>
-		<div class="social">
-			<a href="https://github.com/jacksloan" target="_blank" rel="noopener" aria-label="Jack's Github">
-				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#github"></use></svg>
-			</a>
-			<a href="https://www.linkedin.com/in/jack-sloan/" target="_blank" rel="noopener" aria-label="Jack's LinkedIn">
-				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#linkedin"></use></svg>
-			</a>
-			<a href="https://www.youtube.com/user/jbsloan1/featured" target="_blank" rel="noopener" aria-label="Jack's Youtube">
-				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#youtube"></use></svg>
-			</a>
-			<a href="https://www.instagram.com/lutsenjack/" target="_blank" rel="noopener" aria-label="Jack's Instagram">
-				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#instagram"></use></svg>
-			</a>
-		</div>
-	</nav>
+	<site-nav></site-nav>
 
 	<main>
 		<h2>Projects</h2>
@@ -65,5 +48,6 @@
 				document.getElementById('repos').removeAttribute('hidden');
 			});
 	</script>
+	<script src="scripts/theme.js"></script>
 </body>
 </html>
