@@ -11,6 +11,7 @@
 	<meta property="og:title" content="Jack Sloan | Projects" />
 	<meta property="og:description" content="A list of Jack's open source projects" />
 	<meta name="view-transition" content="same-origin" />
+	<script>(function(){var s=localStorage.getItem('theme');document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');})()</script>
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -32,6 +33,14 @@
 			<a href="https://www.instagram.com/lutsenjack/" target="_blank" rel="noopener" aria-label="Jack's Instagram">
 				<svg viewBox="0 0 24 24" fill="currentColor"><use href="assets/icons.svg#instagram"></use></svg>
 			</a>
+			<button class="theme-toggle" aria-label="Toggle light/dark theme">
+				<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<use href="assets/icons.svg#sun"></use>
+				</svg>
+				<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<use href="assets/icons.svg#moon"></use>
+				</svg>
+			</button>
 		</div>
 	</nav>
 
@@ -64,6 +73,13 @@
 				document.getElementById('loading').style.display = 'none';
 				document.getElementById('repos').removeAttribute('hidden');
 			});
+	</script>
+	<script>
+		document.querySelector('.theme-toggle').addEventListener('click', function() {
+			const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+			document.documentElement.dataset.theme = next;
+			localStorage.setItem('theme', next);
+		});
 	</script>
 </body>
 </html>
