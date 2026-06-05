@@ -9,6 +9,7 @@ html, body {
   font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   background-color: #f9fafb;
   color: #000;
+  scrollbar-gutter: stable;
 }
 
 @media (min-width: 640px) {
@@ -83,6 +84,7 @@ main {
   color: #374151;
   font-size: 1rem;
   line-height: 1.75;
+  view-transition-name: main-card;
 }
 
 @media (min-width: 640px) {
@@ -226,4 +228,54 @@ article figcaption {
   background-color: #eef2ff;
   color: #4f46e5;
   box-shadow: 0 0 0 1px #e0e7ff;
+}
+
+/* ============================================
+   Loading spinner
+   ============================================ */
+
+#loading {
+  display: none;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+#loading::after {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e0e7ff;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Cross-document View Transitions
+   ============================================ */
+
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+::view-transition-old(root) {
+  animation: fade-slide-out 200ms ease both;
+}
+
+::view-transition-new(root) {
+  animation: fade-slide-in 200ms ease both;
 }
